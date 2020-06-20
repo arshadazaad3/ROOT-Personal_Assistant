@@ -10,7 +10,7 @@ import * as DateAndTime from './dateAndTime'
 
 var app_name_Ques = ["what is your name", "what's your name", "what your name", "your name please", "can i know your name"]
 var whoCreatedYou_List = ["who made you", "who created you",]
-var whoNamed_List = ["who named you", "who gave you your name"]
+var whoNamed_List = ["who named you", "who gave you your name", "who named you as root",]
 var WhenWereYouCreated_List = ["when will you created", "when were you created", "when were you made", "on what day were you made", "on what date were you made"]
 var WhoIsArshad = ["who is arshad", "who is arshad azaad", "arshad azaad", "arshad"]
 var WhoisArshadReply = ["Arshad Azaad coded me", "Arshad Azaad bought me to existence", "i'm here thanks to Arshad Azaad"]
@@ -21,7 +21,6 @@ var WhoisArshadReply = ["Arshad Azaad coded me", "Arshad Azaad bought me to exis
 var TellMeARiddle_List = ["tell me a riddle", "riddle please", "tell a riddle", "tell riddle", "tell riddles", "do you know any good riddles", "do you know riddles"]
 var WhatsMyName_List = ["what's my name", "what is my name", "do you know my name"]
 var MyNameis_List = ["my name is", "my name goes by"]
-var TellMeSomething_List = ["tell me something"]
 var Goodmorning_List = ["good morning", "good morning root"]
 var DoYouHaveAHobby_List = ["do you have a hobby"]
 
@@ -51,23 +50,23 @@ var whatsUp_List = ["what's up", "what up"]
 var ImBored_List = ["i'm bored", "i don't know what to do", "life is boring", "it's boring", "i am bored"]
 var iHateYou_List = ["i hate you", "bloody idiot", "rascal", "you are lame", "idiot", "i don't like you", "you are not great", "you're amazing", "you're an idiot", "you are mad", "you are an idiot", "are you crazy", "are you crazy", "are you mad", "you are an idiot", "you're the worst", "you are the worst"]
 var AreyouARobot_List = ["are you a robot", "are you a human", "you are a robot", "are you robot"]
-var OpenVoiceOptions_List = ["open voice commands", "open voice options", "open voice option", "open voice settings"]
+var OpenVoiceOptions_List = ["open voice commands", "change voice settings", "open voice options", "open voice option", "open voice settings", "show voice options", "whoe me voice option", "change voice option"]
 var ChangeYourVoice_List = ["change your voice", "can you change your voice", "your voice sucks", "i need to change to change your voice"]
-var TellMeJoke_List = ["tell me a joke", "tell me another joke", "make me laugh!", "make me laugh", "tell a joke", "tell me joke", "one more joke please", "one more joke", "joke please"]
+var TellMeJoke_List = ["tell me a joke", "tell me another joke", "tell something funny", "make me laugh!", "make me laugh", "tell a joke", "tell me joke", "one more joke please", "one more joke", "joke please"]
 var ILoveYou_List = ["i love you", "i'm in love with you"]
 var OneMore_List = ['one more', "one more please", "tell me one more", "another one"]
 var whatDoYouWithMyData_List = ["what do you do with my data", "do you save what I say"]
 var whatLanguageCanYouSpeak_List = ["which languages can you speak", "what language can you speak", "what languages can you speak"]
 var DoYouHaveParents_List = ["what is your mother’s name", "what is your father's name", "what's your mother's name", "who is your father", "who is your mother", "what your mother name", "what's your father's name", "do you have brothers", "do you have siblings"]
-var WhereDoYouLive_List = ["where do you live", "where are you living"]
-var HowManyPeopleCanYouSpeakAtOnce_List = ["How many people can you speak to at once", "how many people can you speak at once", "how many people can you talk to", "how many people can you speak to"]
+var WhereDoYouLive_List = ["where do you live", "where are you living", "where you live"]
+var HowManyPeopleCanYouSpeakAtOnce_List = ["How many people can you speak to at once", "how many people can you speak at once", "how many people can you talk to", "how many people can you speak to", "how many people can you talk at once"]
 var WhosYourBoss_List = ["who's your boss", "who is your boss"]
 var WhoIsYourFamily_List = ["who is your family", "do you have family", "who's your family"]
 var AreYouExpensive_List = ["are you expensive"]
 var DoYouGetSmarter_List = ["do you get smarter"]
-var SingMeASong_List = ["sing me a song", "sing me song", "sing me a song please", "can you sing me a song", "sing a song"]
+var SingMeASong_List = ["sing me a song", "sing me song", "sing me a song please", "can you sing me a song", "sing a song", "can you sing"]
 var WhatAreYouMadeOf_List = ["what are you made of", "what on earth are you made of"]
-var ShowMeSomethingFunny_List = ["something", "show me something funny", "show me something funny", "can you show me something funny", "show something funny"]
+var ShowMeSomethingFunny_List = ["show me something funny", "show me something funny", "can you show me something funny", "show something funny"]
 var ExitApp_List = ["exit app", "exit", "exit application", "stop application", "quit application"]
 var HowIsYourDayGoing_List = ["how is your day going", "how is day going", "how good is your day", "is your day good"]
 var WhatsYourPurpose_List = ["what's your purpose", "what is your purpose", "why were you built", "what is your goal", "what is you objective"]
@@ -83,14 +82,15 @@ var WhyAreYouBeingLikeThis_List = ["why are you being like this", "why you doing
 var SaySorry_List = ["say sorry", "please say sorry", "can you say sorry"]
 var DoYouHave_List = ["do you have feeling", "do you get angry", "do you get sad", "do you get upset", "do you have feelings"]
 var TellMeMotivation_List = ["tell me a motivation", "motivation please", "motivate me", "tell me a motivation quote"]
-var Advice_List = ["give me some advice", "tell me some advice", "advice me", "show some advice"]
-var ShowSuggestions_list = ["show suggestions", "suggestions", "show suggestion", "show me what can you do"]
+var Advice_List = ["give me some advice", "tell me some advice", "advice me", "show some advice", "advise me", "give me some advise", "tell me some advise", "can you advice me"]
+var ShowSuggestions_list = ["show suggestions", "suggestions", "show suggestion", "show me what can you do", "show suggested"]
 var WhatDoYouHave_List = ["what do you have"]
 var WhoIsRoot_List = ["who is root", "what is root", "who root", "are you root",]
 var DoYouKnowAssistant_List = ["do you know siri", "do you know google", "do you know alexa", "do you know bixby", "siri is better than you", "google is better than you", "siri is the best", "google is the best", "siri is better", "google is better"]
 var whoIsroot_List1 = ["who is wrote", "who wrote"]
 var IDontKnow_List = ["i don't know"]
-var ChangeTheme_List = ["change theme", "change app theme", "switch theme"]
+var ChangeTheme_List = ["change theme", "change app theme", "switch theme", "change the theme", "switch the theme", "the app looks ugly", "this app looks ugly", "the design is ugly"]
+var ChangeTheme_List1 = ["change application team", "change up team", "change up theme", "change our team", "teens up team", "change a team", "teens app team", "sweet team", "sweet app team", "sweet app theme", "change of team", "change app team", "switch app theme"]
 var WhatsWrong_List = ["what's wrong", "what's wrong with you", "what is wrong with you", "what is wrong"]
 var OpenSettings_list = ["open settings", "can you open settings", "open setting", "open options", "open configurations", "open your settings"]
 var Cancel_List = ["cancel", "abort", "exit"]
@@ -110,7 +110,7 @@ var ImNaked_List = ["i'm naked", "i am naked"]
 var DoYouBelieveInGod_List = ["do you believe in god", "do you know god"]
 var WhatIsTheMeaningOfLife_List = ["what is the meaning of life", "what is the meaning life"]
 var WhatIsTheBestPhone_List = ["what is the best phone", "what's the best phone in the world"]
-var DoYouWantToBuildASnowMan_List = ["Do you want to build a snowman", "do you want to build snowman"]
+var DoYouWantToBuildASnowMan_List = ["do you want to build a snowman", "do you want to build snowman", "do you wanna build a snowman", "you want to build a snowman"]
 var TestingTesting_List = ["testing, testing", "testing"]
 var HowDoILook_List = ["how do i look", "do i look good"]
 var AreYouIntelligent_List = ["are you intelligent", "are you smart"]
@@ -123,10 +123,11 @@ var CanIchangeYourName_List = ["can i change your name"]
 var HappyBirthday_List = ["happy birthday", "happy birthday to you"]
 var ShutUp_List = ["shut up", "shut", "shut up please"]
 var Wow_List = ["wow", "woah"]
-var EmotionStateUser_List = ["am i happy", "am i sad", "am i happy or sad", "do i sound happy", "do i sound sad", "mi happy", "mi happy or sad", "what's my emotion", "mi sad or happy"]
+var EmotionStateUser_List = ["what is my emotion", "am i happy", "am i sad", "am i happy or sad", "do i sound happy", "do i sound sad", "mi happy", "mi happy or sad", "what's my emotion", "mi sad or happy"]
+var EmotionStateUser_List1 = ["what's my motion", "what is my motion"]
 var HowDoYouKnow_list = ["how do you know", "how come you know", "how do you know everything"]
-var ShowMeme_List = ["do you know any memes", "show meme", "show memes", "show any meme", "show a meme", "can you show a meme", "display meme", "do you have memes", "do you have any memes", "do you have any meme"]
-var Facts_List = ["tell me a fact", "say something interesting", "tell a fact", "tell something", "tell me facts", "say something"]
+var ShowMeme_List = ["do you know any memes", "show me a meme", "show meme", "show memes", "show any meme", "show a meme", "can you show a meme", "display meme", "do you have memes", "do you have any memes", "do you have any meme"]
+var Facts_List = ["tell me a fact", "tell me something", "say something interesting", "tell a fact", "tell something", "tell me facts", "say something", "new fact","can you tell a fact"]
 var Facts_List1 = ["tell effect", "effect"]
 var CanYouRap_List = ["can you rap", "rap for me", "rap a song"]
 var CanYouRap_List1 = ["can you wrap"]
@@ -142,7 +143,7 @@ var SelfDestruct_List = ["self-destruct", "self destruct", "selfdestruct"]
 var LetsParty_List = ["let's party", "lets party"]
 var EntertainMe_List = ["entertain me", "can you entertain me"]
 var DidYouFart_List = ["did you fart", "are your farting"]
-var WhatAmIThinking_List = ["what am i thinking right now", "what am i thinking now"]
+var WhatAmIThinking_List = ["what am i thinking right now", "what am i thinking now", "what am i thinking"]
 var DoILookFat_List = ["do i look fat"]
 var AmIGood_List = ["am i good", "am i a good person"]
 var WhatDoYouThinkOfMe_List = ["what do you think of me", "do you think of me"]
@@ -150,20 +151,26 @@ var DoYouKnowMe_List = ["do you know me"]
 var AskMeAQuestion_List = ["ask me a question", "ask me any question"]
 var CanYouThinkForYourself_List = ["can you think for yourself", "can you think", "can you think by yourself", "do you think"]
 var DoYouHaveNickName_List = ["do you have a nickname", "what's your nickname", "do you have nickname"]
-var ShowQuestions_List = ["show available questions", "show questions", "what can you say", "show your questions", "show question", "what can i ask you", "what can i ask"]
+var ShowQuestions_List = ["show me questions", "what can I ask you", "what can you tell", "show available questions", "show questions", "what can you say", "show your questions", "show question", "what can i ask you", "what can i ask"]
 var CanIAskYou_List = ["can i ask you something", "can i ask you"]
-var AutoEmotion_List = ["change auto emotion", "change auto emotion feature", "switch auto emotion feature"]
-var AutoSilent_List = ["change auto silent", "change auto silent feature", "switch auto silent feature"]
+var YouAreFunny_List = ["you are funny", "you are very funny", "you're funny", "wow you're funny", "god you're funny"]
+var MakeMeFood_List = ["make me food", "make me some food", "can you make me some food", "can you make me food",]
 
-
+var EnnaKadha_List = ["enna kadha", "ena kadha", "enna katha", "enha katha", "ennah kathah", "ennaah kadha", "enna kadda", "enna kada"]
+var EnnaKadha_List1 = ["hina khan", "sainik khadya", "ennakkad"]
 var Really_List = ["really", "how come"]
 var WhatsYourFavouriteMovie_List = ["what's your favourite movie", "what is your favourite movie"]
-var MakeMeFood_List = ["make me food", "make me some food", "can you make me some food", "can you make me food"]
+var WhoIsyourBestFriend = ["who's your best friend", "who is your pal", "do you have a best friend", "who is you best friend"]
 var ImDrunk_List = ["i'm drunk", "i am drunk"]
+var ImHungry_List = ["i'm hungry", "i am hungry"]
+var ImSad_List = ["i'm sad", "i'm not happy", "i am sad", "i am not happy"]
+var ImHappy_List = ["i'm happy", "i am very happy", "i'm excited"]
 
 ////////////////////
 /// ANSWERS
 /////////////////////
+
+var YouAreFunny_Reply = ["Wow, Am I Thanks"]
 var MakeMeFood_Reply = ["That's beyond my abilities", "well, if i was able to that it would be Amazing"]
 var CanIAskYou_Reply = ["Go Ahead", "Yes, You can Ask"]
 var WhoIsYourFamily_Reply = ["my family is team root"]
@@ -230,7 +237,7 @@ var whoNamed_Reply = ["arshad named me as root"]
 var HowIsYourDayGoing_Reply = ["it was boring until you arrived", "my day is always the same"]
 var WhatAreYouMadeOf_Reply = ["i'm made of tools like react native, and so on", "how were you made", "what were you built in", "how are you made"]
 var WhatAreYou_Reply = ["i am your personal assistant, root"]
-var SingMeASong_reply = ["Ahemm, let me try.Ahemm still trying", "la la la la la la la la la laa laa , la la laaa la . laaaa laaa"]
+var SingMeASong_reply = ["Ahemm. let me try. Ahemm still trying", "la la la la la la la la la laa laa , la la laaa la . laaaa laaa"]
 var WhosYourBoss_Reply = ["i'm just a machine, running on root's code"]
 var DoYouGetSmarter_Reply = ["yes i will"]
 var AreYouExpensive_Reply = ["no i'm not"]
@@ -262,7 +269,7 @@ var TellMeJoke_Reply = ["What's the best thing about Switzerland?.... I don't kn
     "I went to buy some camouflage trousers the other day, but I couldn’t find any", "This policeman came up to me with a pencil and a piece of very thin paper. He said, ‘I want you to trace someone for me",
     "I needed a password eight characters long, so I picked Snow White and the Seven Dwarves",
     "I was playing chess with my friend and he said, ‘Let’s make this interesting’. So we stopped playing chess.",
-    "I saw a guy spill all his Scrabble letters on the road. I asked him, “What’s the word on the street?", "Why aren’t koalas actual bears?.The don’t meet the koalafications.", "How does NASA organize a party?.They planet.", "How Long is a Chinese man’s name.No, it actually is."
+    "I saw a guy spill all his Scrabble letters on the road. I asked him, “What’s the word on the street?", "Why aren’t koalas actual bears?. The don’t meet the koalafications.", "How does NASA organize a party?. They planet.", "How Long is a Chinese man’s name. No, it actually is."
 ]
 
 var ImAMachineImNotAbleToDo_Reply = ["i'm a machine, i'm not able to do those things"]
@@ -293,10 +300,10 @@ var Riddles_Answer = ["An umbrella.", "A sponge.", "In a dictionary.",
 
 ]
 
-var Facts_Reply = ["In 1945 a flock of birds landed on the minute hand of Big Ben and delayed time by five minutes, creating chaos for the punctual British.",
+var Facts_Reply = ["In 19 45 a flock of birds landed on the minute hand of Big Ben and delayed time by five minutes, creating chaos for the punctual British.",
     "This fact might surprise you. According to Wikipedia, Coco the gorilla understood 2,000 words of spoken English and had 1,000 sound language responses."
     , "If you were to write out every number (one, two, three, etc.), you wouldn't use the letter 'b' until you reached one billion.",
-    "The oldest still-operating amusement park in the world opened in Denmark in 1583.", "Penguins used to be almost seven feet tall.",
+    "The oldest still-operating amusement park in the world opened in Denmark in 15 f83.", "Penguins used to be almost seven feet tall.",
     "One Brazilian island has so many venomous snakes that the government banned visitors.", "The world's largest plane is wider than two football fields.",
     "Ocean-dwelling species are disappearing twice as quickly as land animals.", "Canada's national parks are bigger than many countries."
 ]
@@ -317,7 +324,16 @@ var Advices_Reply = ["Be patient and persistent. Life is not so much what you ac
     "Don't worry what other people think. Personality begins where comparison leaves off. Be unique. Be memorable. Be confident. Be proud."
 ]
 
+////////////////////////////////////////////
+//FEATURE CONTROL
+
+var AutoEmotion_List = ["change auto emotion", "change auto emotion feature", "switch auto emotion feature"]
+var AutoSilent_List = ["change auto silent", "change auto silent feature", "switch auto silent feature", "switch silent feature", "switch silent option", "switch auto silent"]
+
+///////////////////////////////////////////'
+
 var stableEmotion_reply = ["your emotion is stable"]
+
 //USER PREVIOUS QUES
 //ONLY CAPITALS NO SPACE
 var prevUserQues = ''
@@ -379,6 +395,16 @@ export const systemReplyVoice = userVoiceText => {
     //WOW
     if (new RegExp(Wow_List.join("|")).test(userVoice)) {
         var reply = Wow_Reply[Math.floor(Math.random() * Wow_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //SHOW QUESTIONS
+    if (new RegExp(ShowQuestions_List.join("|")).test(userVoice)) {
+        var reply = "Showing Available Questions"
         Tts.getInitStatus().then(() => {
             Tts.speak(reply)
         });
@@ -495,6 +521,16 @@ export const systemReplyVoice = userVoiceText => {
         return reply
     }
 
+    //YOU ARE FUNNY
+    if (new RegExp(YouAreFunny_List.join("|")).test(userVoice)) {
+        var reply = YouAreFunny_Reply[Math.floor(Math.random() * YouAreFunny_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
     //WHO IS YOUR FAMILY
     if (new RegExp(WhoIsYourFamily_List.join("|")).test(userVoice)) {
         var reply = WhoIsYourFamily_Reply[Math.floor(Math.random() * WhoIsYourFamily_Reply.length)];
@@ -545,15 +581,7 @@ export const systemReplyVoice = userVoiceText => {
         return reply
     }
 
-    //SHOW QUESTIONS
-    if (new RegExp(ShowQuestions_List.join("|")).test(userVoice)) {
-        var reply = "Showing Available Questions"
-        Tts.getInitStatus().then(() => {
-            Tts.speak(reply)
-        });
-        prevQues = reply
-        return reply
-    }
+
 
 
 
@@ -1288,6 +1316,28 @@ export const systemReplyVoice = userVoiceText => {
         return reply
     }
 
+    //CHANGE THEME
+    if (new RegExp(ChangeTheme_List1.join("|")).test(userVoice)) {
+        var reply = "Do you Mean change App theme"
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        prevUserQues = 'Switching Theme'
+        return reply
+    }
+
+    //WHATS MY EMOTION
+    if (new RegExp(EmotionStateUser_List1.join("|")).test(userVoice)) {
+        var reply = "Do you Mean What's My Emotion"
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        prevUserQues = 'User Emotion'
+        return reply
+    }
+
 
 
     /////////////////////////////////////////////////////////////////////////////
@@ -1355,7 +1405,23 @@ export const systemReplyVoice = userVoiceText => {
             return reply
         }
 
+        else if (prevUserQues == "Switching Theme") {
+            var reply = "Switching Theme"
+            Tts.getInitStatus().then(() => {
+                Tts.speak(reply)
+            });
+            prevQues = reply
+            return reply
+        }
 
+        else if (prevUserQues == "User Emotion") {
+            var reply = 'User Emotion'
+            Tts.getInitStatus().then(() => {
+                Tts.speak(reply)
+            });
+            prevQues = reply
+            return reply
+        }
 
         else {
             Tts.getInitStatus().then(() => {
@@ -2006,7 +2072,6 @@ export const systemReplyVoice = userVoiceText => {
     // My Name
     ////
     if (new RegExp(app_name_Ques.join("|")).test(userVoice)) {
-        // var reply = DoingGood_Reply[Math.floor(Math.random() * DoingGood_Reply.length)];
         var reply = "well, I was named as root"
         Tts.getInitStatus().then(() => {
             Tts.speak(reply)
@@ -2050,11 +2115,10 @@ export const systemReplyVoice = userVoiceText => {
         });
         return "Sorry I Didn't Get That"
     }
-
     return true
-
 }
 
+//Method which Handles Error on Voice
 export const errorOnVoice = () => {
     Tts.getInitStatus().then(() => {
         Tts.speak("sorry i didn't get that", {
@@ -2066,10 +2130,9 @@ export const errorOnVoice = () => {
 
 }
 
+//Method to To open Private Mode Window
 export const PrivateModeHandler = () => {
-
     if (prevUserQues == 'privateMode')
         Actions.PrivateMode_Window()
     prevUserQues = ""
-
 }

@@ -1,5 +1,5 @@
 //Import React
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 //Import all required component
 import {
@@ -63,7 +63,7 @@ const App = () => {
   }
 
   const openContact = (contact) => {
-    Contacts.openExistingContact(contact, () => {})
+    Contacts.openExistingContact(contact, () => { })
   };
 
   return (
@@ -96,11 +96,12 @@ export default App;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    marginTop: 10
   },
   header: {
     backgroundColor: '#4591ed',
-    color:'white',
+    color: 'white',
     paddingHorizontal: 15,
     paddingVertical: 15,
     fontSize: 20
@@ -108,6 +109,6 @@ const styles = StyleSheet.create({
   searchBar: {
     backgroundColor: '#f0eded',
     paddingHorizontal: 30,
-    paddingVertical: (Platform.OS === "android") ? undefined: 15,
+    paddingVertical: (Platform.OS === "android") ? undefined : 15,
   }
 });

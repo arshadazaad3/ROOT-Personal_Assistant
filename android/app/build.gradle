@@ -231,6 +231,9 @@ dependencies {
 
     compile project(':react-native-vector-icons')
     compile project(':react-native-keep-awake')
+    // compile project(':react-native-kill-app')
+    compile project(':react-native-exit-app')
+
 
 
     if (enableHermes) {
