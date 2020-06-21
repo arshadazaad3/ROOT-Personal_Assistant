@@ -200,6 +200,7 @@ class ChatBot extends React.Component {
           this.setState({ suggestions: true });
           timer = setTimeout(() => this.setState({ suggestions: false }), 7000);
           this.handleMicandVoiceView();
+
         }
         if (voiceResponse == 'Opening Private Mode') {
           this.handleMicandVoiceView();
@@ -238,12 +239,10 @@ class ChatBot extends React.Component {
         }
         if (voiceResponse == 'exit app') {
           Tts.speak('Exiting Application');
+          this.handleMicandVoiceView()
           // BackHandler.exitApp();
           timer = setTimeout(() => RNExitApp.exitApp(), 2000);
         }
-
-     
-
       }
     };
 
@@ -532,7 +531,6 @@ class ChatBot extends React.Component {
     var suggestion = userClickSuggestion.toLowerCase()
     var voiceObject = { value: [suggestion, 'test_text'], lastname: "none" };
     Voice._onSpeechResults(voiceObject)
-    console.log(this.state.allMessagesArray)
     this.setState({ suggestions: false })
     this.handleMicandVoiceView();
 
@@ -570,19 +568,13 @@ class ChatBot extends React.Component {
   checkUserEmotion = () => {
     if (this.state.allMessagesArray.length > 1) {
       if (this.state.autoEmotionFeature) {
-        Tts.setDefaultPitch(1);
         if (this.state.micIconState) {
-          if (
-            !this.state.recording_Voice &&
-            !this.state.system_VoiceAnimation_state
-          ) {
-            if (!this.state.checkedEmotion) {
-              OtherHandler.EmotionSensor(this.state.allMessagesArray);
-              this.setState({
-                checkedEmotion: true,
-                voiceAvailable: false,
-              });
-            }
+          if (!this.state.checkedEmotion) {
+            OtherHandler.EmotionSensor(this.state.allMessagesArray);
+            this.setState({
+              checkedEmotion: true,
+              voiceAvailable: false,
+            });
           }
         }
       }
@@ -591,9 +583,8 @@ class ChatBot extends React.Component {
 
   checkIfAllMessagesEmpty = () => {
     if (this.state.autoSilentFeature) {
-      if (this.state.allMessagesArray.length <= 1) {
+      if (this.state.allMessagesArray.length <= 1 && this.state.micIconState) {
         VoiceHandler.systemReplyVoice('no response');
-        Tts.setDefaultPitch(2);
         this.setState({
           voiceAvailable: false,
         });
@@ -631,6 +622,8 @@ class ChatBot extends React.Component {
   toggleShowSomethingModal() {
     this.setState({
       showSomethingFunnyModalState: !this.state.showSomethingFunnyModalState,
+      micButton: !this.state.micButton,
+      voiceAvailable: true,
     });
   }
 
@@ -781,18 +774,17 @@ class ChatBot extends React.Component {
                 color={this.state.FontColorSystemText}
               />,
             )}
-
-            <AnimatedLoader
-              visible={this.state.recording_Voice}
-              source={require('./icons/7833-voice.json')}
-              animationStyle={{
-                height: 80,
-                width: 80,
-                top: '175%',
-              }}
-              speed={1}
-              onPress={this.runSystemVoice}
-            />
+=              <AnimatedLoader
+                visible={this.state.recording_Voice}
+                source={require('./icons/7833-voice.json')}
+                animationStyle={{
+                  height: 80,
+                  width: 80,
+                  top: '175%',
+                }}
+                speed={1}
+                onPress={this.runSystemVoice}
+              />
 
             <AnimatedLoader
               visible={this.state.system_VoiceAnimation_state}
