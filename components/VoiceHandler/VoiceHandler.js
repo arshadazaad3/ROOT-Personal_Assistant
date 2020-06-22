@@ -45,7 +45,7 @@ var whatsTheDate = ["what's the date today", "tell me the date", "what's the dat
 var whatsTheTime = ["what's the time", "tell me the time now", "tell me the time", "what time is it now", "time please", "the time"]
 var whatCanYouDo_List = ["what can you do", "what else can you do", "what do you know"]
 var FuckOff_List = ["fuck", "fuck off", "can u fuck off", "f off"]
-var youAreGreat_List = ["you are great", "you're the best", "you are cool", "you are the best", "i like you", "you're great", "you're intelligent", "you're clever", "you're handsome", "you're smart", "you're amazing"]
+var youAreGreat_List = ["you are great", "you're the best", "you are cool", "you are the best", "i like you", "you're great", "you're intelligent", "you're clever", "you're handsome", "you're smart", "you're amazing", "you are amazing", "you are smart"]
 var whatsUp_List = ["what's up", "what up"]
 var ImBored_List = ["i'm bored", "i don't know what to do", "life is boring", "it's boring", "i am bored"]
 var iHateYou_List = ["i hate you", "bloody idiot", "rascal", "you are lame", "idiot", "i don't like you", "you are not great", "you're an idiot", "you are idiot", "you are mad", "you are an idiot", "are you crazy", "are you crazy", "are you mad", "you are an idiot", "you're the worst", "you are the worst"]
@@ -2128,8 +2128,7 @@ export const systemReplyVoice = userVoiceText => {
 export const errorOnVoice = () => {
     Tts.getInitStatus().then(() => {
         Tts.speak("sorry i didn't get that", {
-            rate: 0.6,
-            pitch: 1,
+            rate: 0.8,
 
         })
     });
