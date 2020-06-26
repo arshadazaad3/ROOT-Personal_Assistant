@@ -43,6 +43,7 @@ export default class WelcomeWindow extends Component {
     return (
       <View>
         <View>
+          {/* <StatusBar translucent backgroundColor={this.state.BGColor} /> */}
           <StatusBar translucent backgroundColor={this.state.BGColor} />
           <AnimatedLoader
             visible={this.state.animation}

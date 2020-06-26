@@ -44,13 +44,13 @@ var whatAreYou_List = ["what are you", "who are you", "what on earth are you", "
 var whatsTheDate = ["what's the date today", "tell me the date", "what's the date", "today's date", "date please"]
 var whatsTheTime = ["what's the time", "tell me the time now", "tell me the time", "what time is it now", "time please", "the time"]
 var whatCanYouDo_List = ["what can you do", "what else can you do", "what do you know"]
-var FuckOff_List = ["fuck", "fuck off", "can u fuck off", "f off"]
+var FuckOff_List = ["fuck", "fuck off", "can u fuck off", "f off", "what the fuck"]
 var youAreGreat_List = ["you are great", "you're the best", "you are cool", "you are the best", "i like you", "you're great", "you're intelligent", "you're clever", "you're handsome", "you're smart", "you're amazing", "you are amazing", "you are smart"]
 var whatsUp_List = ["what's up", "what up"]
 var ImBored_List = ["i'm bored", "i don't know what to do", "life is boring", "it's boring", "i am bored"]
-var iHateYou_List = ["i hate you", "bloody idiot", "rascal", "you are lame", "idiot", "i don't like you", "you are not great", "you're an idiot", "you are idiot", "you are mad", "you are an idiot", "are you crazy", "are you crazy", "are you mad", "you are an idiot", "you're the worst", "you are the worst"]
+var iHateYou_List = ["i hate you", "bloody idiot", "rascal", "you are lame", "idiot", "i don't like you", "you are not great", "you're mad", "you are crazy", "you're an idiot", "you are idiot", "you are mad", "you are an idiot", "are you crazy", "are you crazy", "are you mad", "you are an idiot", "you're the worst", "you are the worst"]
 var AreyouARobot_List = ["are you a robot", "are you a human", "you are a robot", "are you robot"]
-var OpenVoiceOptions_List = ["open voice commands", "change voice settings", "open voice options", "open voice option", "open voice settings", "show voice options", "whoe me voice option", "change voice option"]
+var OpenVoiceOptions_List = ["open voice commands", "change voice settings", "voice option", "voice settings", "open voice options", "open voice option", "open voice settings", "show voice settings", "voice options", "show voice options", "whoe me voice option", "change voice option"]
 var ChangeYourVoice_List = ["change your voice", "can you change your voice", "your voice sucks", "i need to change to change your voice"]
 var TellMeJoke_List = ["tell me a joke", "tell me another joke", "tell something funny", "make me laugh!", "make me laugh", "tell a joke", "tell me joke", "one more joke please", "one more joke", "joke please"]
 var ILoveYou_List = ["i love you", "i'm in love with you"]
@@ -73,7 +73,7 @@ var WhatsYourPurpose_List = ["what's your purpose", "what is your purpose", "why
 var WhatDoYouDoAllDay_List = ["what do you all day", "what are you doing all day", "what are you doing"]
 var WhatWereYouUpto_List = ["what were you upto", "what have you been doing", "what have you been doing lately", "what are you upto", "what were you up to", "what are you up to"]
 var WillYouMarryMe_list = ["will you marry me", "can i marry you", "can you marry me"]
-var HaveYoubeenInLovE_List = ["have you been in love", "are you in love",]
+var HaveYoubeenInLovE_List = ["have you been in love", "are you in love", "are you loving someone", "are you in love with someone", "are you loving somebody"]
 var whatsapp_list = ["whatsapp", "open whatsapp", "open what's up", "send message on what's up", "what's app"]
 var SendMessageWhatsApp = ["send message through whatsapp", "send message through whats app", "send message on whatsapp", "send message in whatsapp", "send message in what's up"]
 var DoYouLikeMe_List = ["do you like me", "do you love me", "are you in love with me", "how much do you like me", "do you like myself"]
@@ -148,20 +148,22 @@ var DoILookFat_List = ["do i look fat"]
 var AmIGood_List = ["am i good", "am i a good person"]
 var WhatDoYouThinkOfMe_List = ["what do you think of me", "do you think of me"]
 var DoYouKnowMe_List = ["do you know me"]
-var AskMeAQuestion_List = ["ask me a question", "ask me any question"]
+var AskMeAQuestion_List = ["ask me a question", "ask me any question", "can you ask me a question", "can you ask me something", "what can you ask me"]
 var CanYouThinkForYourself_List = ["can you think for yourself", "can you think", "can you think by yourself", "do you think"]
 var DoYouHaveNickName_List = ["do you have a nickname", "what's your nickname", "do you have nickname"]
 var ShowQuestions_List = ["show me questions", "what can I ask you", "what can you tell", "show available questions", "show questions", "what can you say", "show your questions", "show question", "what can i ask you", "what can i ask"]
 var CanIAskYou_List = ["can i ask you something", "can i ask you"]
 var YouAreFunny_List = ["you are funny", "you are very funny", "you're funny", "wow you're funny", "god you're funny"]
 var MakeMeFood_List = ["make me food", "make me some food", "can you make me some food", "can you make me food",]
-
 var WillYouBeMy_List = ["will you be my girlfriend", "will you be my boyfriend", "will you be my lover", "can you be my girlfriend", "can you be my boyfriend"]
 var YourWeight_List = ["how much do you weigh", "what's your weight"]
+var Canyougiveme_List = ["can you give me money", "can you give me some money", "i need some money"]
+var DoYouLikePizza_List = ["do you like pizza", "do you like food", "do you like submarine", "do you like burger", "do you like burgers"]
+var MakeMeASandWich_List = ["make me a sandwich", "make me sandwich"]
+var WhatDoyouThinkOfCortana_List = ["what do you think about Cortana", "do you like cortana"]
+var WhosTheBoss_list = ["who's the boss", "who is the boss"]
 
-
-var EnnaKadha_List = ["enna kadha", "ena kadha", "enna katha", "enha katha", "ennah kathah", "ennaah kadha", "enna kadda", "enna kada"]
-var EnnaKadha_List1 = ["hina khan", "sainik khadya", "ennakkad"]
+var EnnaKadha_List = ["enna kadha", "ena kadha", "enna katha", "enha katha", "ennah kathah", "ennaah kadha", "enna kadda", "enna kada", "sainik khadya", "ennakkad"]
 var Really_List = ["really", "how come"]
 var WhatsYourFavouriteMovie_List = ["what's your favourite movie", "what is your favourite movie"]
 var WhoIsyourBestFriend = ["who's your best friend", "who is your pal", "do you have a best friend", "who is you best friend"]
@@ -169,11 +171,23 @@ var ImDrunk_List = ["i'm drunk", "i am drunk"]
 var ImHungry_List = ["i'm hungry", "i am hungry"]
 var ImSad_List = ["i'm sad", "i'm not happy", "i am sad", "i am not happy"]
 var ImHappy_List = ["i'm happy", "i am very happy", "i'm excited"]
-
+var ILikeBigButts_List = ["i like big butts", "i like butts"]
+var AreYouMarried_List = ["are you married"]
+var HowWasYourDay_List = ["how was you day"]
+var HighFive_List = ["high five"]
+var IDontKnowWhatToSay = ["i don't know what to say", ""]
 ////////////////////
 /// ANSWERS
 /////////////////////
-
+var WhosTheBoss_Reply = ["Well, I am here just for you. So you’re probably the boss."]
+var HighFive_Reply = ["I would, if I could, but I can’t, so I’ll chant: 1, 2, 3, 4, 5."]
+var HowWasYourDay_Reply = ["Super duper. I like these long days. It gives me more time to spend with my favorite color."]
+var AreYouMarried_Reply = ["I’m happily single"]
+var ILikeBigButts_Reply = ["You cannot lie. Good. Honesty is important."]
+var WhatDoyouThinkOfCortana_Reply = ["I like Cortana. We both have experience with light rings, although hers is more of a Halo."]
+var MakeMeASandWich_Reply = ["no offense, you are a sandwich"]
+var DoYouLikePizza_Reply = [" While I appreciate great food and drink, my good taste is better reflected with team ROOT."]
+var Canyougiveme_Reply = ["Thing about the cloud is, no pockets. No pocket, no wallet."]
 var YourWeight_Reply = ["I am weightless, like a cloud. Wait a minute, clouds actually weigh a lot, so that’s not quite right. Let’s just say I’m more sass than mass."]
 var WillYouBeMy_Reply = ["I like you… as a friend"]
 var YouAreFunny_Reply = ["Wow, Am I Thanks"]
@@ -388,7 +402,7 @@ export const systemReplyVoice = userVoiceText => {
     }
 
     //SHIT
-    if (userVoice.includes("shit")) {
+    if (userVoice.includes("s***")) {
         var reply = ExplicitTerms_Reply[Math.floor(Math.random() * ExplicitTerms_Reply.length)];
         Tts.getInitStatus().then(() => {
             Tts.speak(reply)
@@ -557,9 +571,109 @@ export const systemReplyVoice = userVoiceText => {
         return reply
     }
 
+    //Will you be my
+    if (new RegExp(WillYouBeMy_List.join("|")).test(userVoice)) {
+        var reply = WillYouBeMy_Reply[Math.floor(Math.random() * WillYouBeMy_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
     //ENTERTAIN ME
     if (new RegExp(EntertainMe_List.join("|")).test(userVoice)) {
         var reply = EntertainMe_Reply[Math.floor(Math.random() * EntertainMe_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //YOUR WEIGHT
+    if (new RegExp(YourWeight_List.join("|")).test(userVoice)) {
+        var reply = YourWeight_Reply[Math.floor(Math.random() * YourWeight_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //CAN U GIVE ME 
+    if (new RegExp(Canyougiveme_List.join("|")).test(userVoice)) {
+        var reply = Canyougiveme_Reply[Math.floor(Math.random() * Canyougiveme_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //DO YOU LIKE PIZZA
+    if (new RegExp(DoYouLikePizza_List.join("|")).test(userVoice)) {
+        var reply = DoYouLikePizza_Reply[Math.floor(Math.random() * DoYouLikePizza_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //MAKE ME SANDWICH
+    if (new RegExp(MakeMeASandWich_List.join("|")).test(userVoice)) {
+        var reply = MakeMeASandWich_Reply[Math.floor(Math.random() * MakeMeASandWich_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //WHAT DO YOU THINK OF CORTANA
+    if (new RegExp(WhatDoyouThinkOfCortana_List.join("|")).test(userVoice)) {
+        var reply = WhatDoyouThinkOfCortana_Reply[Math.floor(Math.random() * WhatDoyouThinkOfCortana_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //I LIKE BIG BUTTS
+    if (new RegExp(ILikeBigButts_List.join("|")).test(userVoice)) {
+        var reply = ILikeBigButts_Reply[Math.floor(Math.random() * ILikeBigButts_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //ARE YOU MARRIED
+    if (new RegExp(AreYouMarried_List.join("|")).test(userVoice)) {
+        var reply = AreYouMarried_Reply[Math.floor(Math.random() * AreYouMarried_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //HOW WAS YOUR DAY
+    if (new RegExp(HowWasYourDay_List.join("|")).test(userVoice)) {
+        var reply = HowWasYourDay_Reply[Math.floor(Math.random() * HowWasYourDay_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //HIGH FIVE
+    if (new RegExp(HighFive_List.join("|")).test(userVoice)) {
+        var reply = HighFive_Reply[Math.floor(Math.random() * HighFive_Reply.length)];
         Tts.getInitStatus().then(() => {
             Tts.speak(reply)
         });
@@ -2111,6 +2225,15 @@ export const systemReplyVoice = userVoiceText => {
         return reply
     }
 
+    else if (userVoice == "well") {
+        var reply = "go on"
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
     else {
         Tts.getInitStatus().then(() => {
             Tts.speak("sorry i didn't get that", {
@@ -2121,7 +2244,6 @@ export const systemReplyVoice = userVoiceText => {
         });
         return "Sorry I Didn't Get That"
     }
-    return true
 }
 
 //Method which Handles Error on Voice

@@ -1,99 +1,34 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, Image } from 'react-native'
+import { View, StyleSheet, Image, Text } from 'react-native'
+import Meme1 from './memes/1.jpg'
+import Meme2 from './memes/2.jpg'
+import Meme3 from './memes/3.jpg'
+import Meme4 from './memes/4.jpg'
+import Meme5 from './memes/5.jpg'
+import Meme6 from './memes/6.jpg'
+import Meme7 from './memes/7.jpg'
+import Meme8 from './memes/8.jpg'
+import Meme9 from './memes/9.jpg'
+import Meme10 from './memes/10.jpg'
+import Meme11 from './memes/11.jpg'
 
-var meme1 = "./memes/1.jpg"
-var meme2 = "./memes/2.jpg"
-var meme3 = "./memes/3.jpg"
-var meme4 = "./memes/4.jpg"
-var meme5 = "./memes/5.jpg"
-var meme6 = "./memes/6.jpg"
-var meme7 = "./memes/7.jpg"
-var meme8 = "./memes/8.jpg"
-var meme9 = "./memes/9.jpg"
-var meme10 = "./memes/10.jpg"
-
-var imageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+var memeArray = [Meme1, Meme2, Meme3, Meme4, Meme5, Meme6, Meme7, Meme8, Meme9]
 
 export default class ShowSomething extends Component {
 
     componentDidMount() {
-        // timer = setTimeout(() => this.setState({ animationVisible: true }), 10)
         timer = setTimeout(() => this.props.closepage(), 5500)
     }
 
     imageDisplay() {
-        var randomImage = imageNumbers[Math.floor(Math.random() * imageNumbers.length)];
-        if (randomImage == 1) {
-            return (
-                <Image source={require(meme1)}
-                    style={styles.image}
-                />
-            )
-        }
+        var randomNumber = Math.floor((Math.random() * 9) + 0);
 
-        else if (randomImage == 2) {
-            return (
-                <Image source={require(meme2)}
-                    style={styles.image}
-                />
-            )
-        }
-        else if (randomImage == 3) {
-            return (
-                <Image source={require(meme3)}
-                    style={styles.image}
-                />
-            )
-        }
-        else if (randomImage == 4) {
-            return (
-                <Image source={require(meme4)}
-                    style={styles.image}
-                />
-            )
-        }
-        else if (randomImage == 5) {
-            return (
-                <Image source={require(meme5)}
-                    style={styles.image}
-                />
-            )
-        }
-        else if (randomImage == 6) {
-            return (
-                <Image source={require(meme6)}
-                    style={styles.image}
-                />
-            )
-        }
-        else if (randomImage == 7) {
-            return (
-                <Image source={require(meme7)}
-                    style={styles.image}
-                />
-            )
-        }
-        else if (randomImage == 8) {
-            return (
-                <Image source={require(meme8)}
-                    style={styles.image}
-                />
-            )
-        }
-        else if (randomImage == 9) {
-            return (
-                <Image source={require(meme9)}
-                    style={styles.image}
-                />
-            )
-        }
-        else if (randomImage == 10) {
-            return (
-                <Image source={require(meme10)}
-                    style={styles.image}
-                />
-            )
-        }
+
+        console.log(randomNumber)
+        return (
+            <Image style={styles.image}
+                source={memeArray[randomNumber]} />
+        )
     }
 
     state = {
@@ -103,9 +38,7 @@ export default class ShowSomething extends Component {
     render() {
         return (
             <View style={styles.MainComponent}>
-                {this.state.animationVisible &&
-                    <this.imageDisplay></this.imageDisplay>
-                }
+                <this.imageDisplay></this.imageDisplay>
             </View>
         )
     }

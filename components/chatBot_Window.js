@@ -119,6 +119,12 @@ class ChatBot extends React.Component {
     */
     Voice.onSpeechStart = this.onSpeechStart;
     Voice.onSpeechEnd = this.onSpeechEnd;
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
+
+
+    //HANDLE ERROR ON SPEECH IF USER IS INACTIVE
+    var emtpyArr = []
+    ArrayNoReply = emtpyArr
 
     //Handle On Speech Results
     Voice.onSpeechResults = res => {
@@ -254,6 +260,9 @@ class ChatBot extends React.Component {
         var newArr = [];
         Tts.speak("looks Like there's no one there");
         this.handleMicandVoiceView();
+        this.setState({
+          recording_Voice: false
+        })
         ArrayNoReply = newArr;
       } else {
         VoiceHandler.errorOnVoice();
@@ -452,6 +461,7 @@ class ChatBot extends React.Component {
   };
 
   componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
     //LOAD DATA FROM ASYNC STORAGE
     try {
       this.reloadPrevDataonAppStart();
@@ -473,6 +483,16 @@ class ChatBot extends React.Component {
   componentWillUnmount() {
     Tts.stop();
     Voice.destroy();
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
+
+  }
+
+
+  handleBackButtonClick() {
+    this.setState({
+      exitAppNotify: true
+    })
+    return true;
   }
 
   //Variables States Used
@@ -524,6 +544,8 @@ class ChatBot extends React.Component {
     showAlert: false,
     //ALERT MESSAGE
     alertMessage: '',
+    //NOTIFICATION WHEN REQUEST TO CLOSE APP
+    exitAppNotify: false,
   };
 
   //Method To handle Suggestion Click
@@ -774,17 +796,17 @@ class ChatBot extends React.Component {
                 color={this.state.FontColorSystemText}
               />,
             )}
-=              <AnimatedLoader
-                visible={this.state.recording_Voice}
-                source={require('./icons/7833-voice.json')}
-                animationStyle={{
-                  height: 80,
-                  width: 80,
-                  top: '175%',
-                }}
-                speed={1}
-                onPress={this.runSystemVoice}
-              />
+            <AnimatedLoader
+              visible={this.state.recording_Voice}
+              source={require('./icons/7833-voice.json')}
+              animationStyle={{
+                height: 80,
+                width: 80,
+                top: '175%',
+              }}
+              speed={1}
+              onPress={this.runSystemVoice}
+            />
 
             <AnimatedLoader
               visible={this.state.system_VoiceAnimation_state}
@@ -806,6 +828,27 @@ class ChatBot extends React.Component {
           message={this.state.alertMessage}
           closeOnTouchOutside={true}
           closeOnHardwareBackPress={false}
+        />
+        <AwesomeAlert
+          //NOTIFY TO EXIT APP
+          show={this.state.exitAppNotify}
+          showProgress={true}
+          title="QUIT APPLICATION"
+          message="Do you want to quit application"
+          closeOnTouchOutside={true}
+          closeOnHardwareBackPress={false}
+          showCancelButton={true}
+          showConfirmButton={true}
+          cancelText="No, cancel"
+          confirmText="Yes, exit"
+          confirmButtonColor="#DD6B55"
+          onCancelPressed={() => {
+            this.setState({ exitAppNotify: false })
+          }}
+          onConfirmPressed={() => {
+            RNExitApp.exitApp();
+
+          }}
         />
       </SafeAreaView>
     );
