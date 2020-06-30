@@ -8,7 +8,7 @@ import React, { useEffect } from 'react';
 import {
   StyleSheet,
   Text,
-  View,
+  View, Easing,
   SafeAreaView,
   TouchableOpacity,
   ScrollView,
@@ -18,6 +18,7 @@ import {
   ImageBackground,
   BackHandler,
   StatusBar,
+  Animated,
   Alert,
 } from 'react-native';
 
@@ -34,6 +35,7 @@ import { ASSISTANT_NAME } from 'react-native-dotenv';
 import AsyncStorage from '@react-native-community/async-storage';
 import RNExitApp from 'react-native-exit-app';
 import AwesomeAlert from 'react-native-awesome-alerts';
+import LottieView from "lottie-react-native";
 
 //External Components
 import renderIf from './renderIf';
@@ -113,8 +115,8 @@ class ChatBot extends React.Component {
   constructor(prop) {
     super(prop);
     /*
-    Once Speech Results is returned this Function runs
-    if runVoiceOnce variable is true this wont run
+    Once Speech Results is returned this Function Starts.
+    If runVoiceOnce variable is true this wont run
     this function passes user and system queries to array
     */
     Voice.onSpeechStart = this.onSpeechStart;
@@ -122,12 +124,11 @@ class ChatBot extends React.Component {
     this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
 
 
-    //HANDLE ERROR ON SPEECH IF USER IS INACTIVE
-    var emtpyArr = []
-    ArrayNoReply = emtpyArr
-
     //Handle On Speech Results
     Voice.onSpeechResults = res => {
+      //HANDLE ERROR ON SPEECH IF USER IS INACTIVE EMPTY ARRAY
+      var emtpyArr = []
+      ArrayNoReply = emtpyArr
       if (this.state.runVoiceOnce == false) {
         let userVoiceTextString = res.value[0];
         this.state.allMessagesArray.push(userVoiceTextString);
@@ -270,14 +271,20 @@ class ChatBot extends React.Component {
     };
 
     //Event Listener On Text To Speech Finish
-    Tts.addEventListener('tts-finish', event => this.runVoiceMainOne());
+    Tts.addEventListener('tts-finish', event => {
+      this.runVoiceMainOne();
+      if (!this.state.system_VoiceAnimation_state) {
+        this.setState({ micIconState: true })
+      }
+    });
 
     //Event Listener On Text To Speech Start
-    Tts.addEventListener('tts-start', event =>
+    Tts.addEventListener('tts-start', event => {
       this.setState({
         system_VoiceAnimation_state: true,
-        // micIconState: false
-      }),
+        micIconState: false
+      })
+    }
     );
   }
 
@@ -418,6 +425,7 @@ class ChatBot extends React.Component {
 
   //When Speech Starts
   onSpeechStart = e => {
+
     //Invoked when .start() is called without error
     this.setState({
       recording_Voice: true,
@@ -461,6 +469,8 @@ class ChatBot extends React.Component {
   };
 
   componentDidMount() {
+
+
     BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
     //LOAD DATA FROM ASYNC STORAGE
     try {
@@ -482,13 +492,17 @@ class ChatBot extends React.Component {
 
   componentWillUnmount() {
     Tts.stop();
+    Voice.cancel();
     Voice.destroy();
     BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
-
   }
 
 
+
+
   handleBackButtonClick() {
+    Tts.stop();
+    Voice.cancel()
     this.setState({
       exitAppNotify: true
     })
@@ -546,6 +560,7 @@ class ChatBot extends React.Component {
     alertMessage: '',
     //NOTIFICATION WHEN REQUEST TO CLOSE APP
     exitAppNotify: false,
+
   };
 
   //Method To handle Suggestion Click
@@ -622,6 +637,7 @@ class ChatBot extends React.Component {
   runSystemVoice = () => {
     this.setState({
       micButton: !this.state.micButton,
+      recording_Voice: false,
       voiceAvailable: true,
     });
     this.setState({ suggestions: false });
@@ -630,6 +646,11 @@ class ChatBot extends React.Component {
     } else {
       Voice.cancel();
       Tts.stop();
+      this.setState({
+        recording_Voice: false,
+        micIconState: true,
+        system_VoiceAnimation_state: false
+      })
     }
   };
 
@@ -796,29 +817,26 @@ class ChatBot extends React.Component {
                 color={this.state.FontColorSystemText}
               />,
             )}
-            <AnimatedLoader
-              visible={this.state.recording_Voice}
-              source={require('./icons/7833-voice.json')}
-              animationStyle={{
-                height: 80,
-                width: 80,
-                top: '175%',
-              }}
-              speed={1}
-              onPress={this.runSystemVoice}
-            />
-
-            <AnimatedLoader
-              visible={this.state.system_VoiceAnimation_state}
-              source={require('./icons/4909-voice-receiving-animation.json')}
-              animationStyle={{
-                height: 80,
-                width: 80,
-                top: '175%',
-              }}
-              speed={1}
-              onPress={this.runSystemVoice}
-            />
+            {renderIf(this.state.recording_Voice)(
+              <LottieView source={require('./icons/7833-voice.json')} autoPlay loop style={{
+                width: 60,
+                height: 60,
+                top: 6,
+                marginTop: -10,
+                marginBottom: -10
+              }} />
+            )}
+            {renderIf(this.state.system_VoiceAnimation_state)(
+              <LottieView source={require('./icons/4909-voice-receiving-animation.json')}
+                autoPlay loop
+                style={{
+                  width: 60,
+                  height: 60,
+                  top: 6,
+                  marginTop: -10,
+                  marginBottom: -10
+                }} />
+            )}
           </TouchableOpacity>
         </View>
         <AwesomeAlert
@@ -832,7 +850,6 @@ class ChatBot extends React.Component {
         <AwesomeAlert
           //NOTIFY TO EXIT APP
           show={this.state.exitAppNotify}
-          showProgress={true}
           title="QUIT APPLICATION"
           message="Do you want to quit application"
           closeOnTouchOutside={true}

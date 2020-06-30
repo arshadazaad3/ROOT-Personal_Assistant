@@ -28,7 +28,7 @@ var DoYouHaveAHobby_List = ["do you have a hobby"]
 //NOT AVAILABLE
 var CanYouNOTAVAILABLE_List = ["can you open app", "can you play music", "can you play game"]
 
-var TellMeAStory = ["tell me story", "tell a story", "do you know story", "do you know stories", "tell me a story", "do you know any stories"]
+var TellMeAStory = ["tell me story", "tell a story", "tell story", "do you know story", "do you know stories", "tell me a story", "do you know any stories"]
 
 var Bye_List = ["good bye", "see you", "goodbye", "bye"]
 var hi_List = ["hey", "hello", "hola"]
@@ -48,7 +48,8 @@ var FuckOff_List = ["fuck", "fuck off", "can u fuck off", "f off", "what the fuc
 var youAreGreat_List = ["you are great", "you're the best", "you are cool", "you are the best", "i like you", "you're great", "you're intelligent", "you're clever", "you're handsome", "you're smart", "you're amazing", "you are amazing", "you are smart"]
 var whatsUp_List = ["what's up", "what up"]
 var ImBored_List = ["i'm bored", "i don't know what to do", "life is boring", "it's boring", "i am bored"]
-var iHateYou_List = ["i hate you", "bloody idiot", "rascal", "you are lame", "idiot", "i don't like you", "you are not great", "you're mad", "you are crazy", "you're an idiot", "you are idiot", "you are mad", "you are an idiot", "are you crazy", "are you crazy", "are you mad", "you are an idiot", "you're the worst", "you are the worst"]
+var iHateYou_List = ["bloody idiot", "rascal", "you are lame", "idiot", "i don't like you", "you are not great", "you're mad", "you are crazy", "you're an idiot", "you are idiot", "you are mad", "you are an idiot", "are you crazy", "are you crazy", "are you mad", "you are an idiot", "you're the worst", "you are the worst"]
+var iHateYou_List1 = ["i hate you"]
 var AreyouARobot_List = ["are you a robot", "are you a human", "you are a robot", "are you robot"]
 var OpenVoiceOptions_List = ["open voice commands", "change voice settings", "voice option", "voice settings", "open voice options", "open voice option", "open voice settings", "show voice settings", "voice options", "show voice options", "whoe me voice option", "change voice option"]
 var ChangeYourVoice_List = ["change your voice", "can you change your voice", "your voice sucks", "i need to change to change your voice"]
@@ -162,10 +163,15 @@ var DoYouLikePizza_List = ["do you like pizza", "do you like food", "do you like
 var MakeMeASandWich_List = ["make me a sandwich", "make me sandwich"]
 var WhatDoyouThinkOfCortana_List = ["what do you think about Cortana", "do you like cortana"]
 var WhosTheBoss_list = ["who's the boss", "who is the boss"]
+var DoyouWanttoTakeOverWorld_List = ["do you want to take over the world"]
+var DidYouPoopYourPants_List = ["did you poop your pants"]
+var WhatsYourFavouriteMovie_List = ["what's your favourite movie", "what is your favourite movie"]
+var DoyouBelieveLoveAtFirst_List = ["do you believe in love at first sight", "do you believe in love in first sight"]
+var YouCantBeSerious_List = ["surely you can’t be serious", "are you serious", "you can't be serious"]
+var IllBeBack_List = ["i'll be back", "i am back", "i will be back", "i'm back"]
 
 var EnnaKadha_List = ["enna kadha", "ena kadha", "enna katha", "enha katha", "ennah kathah", "ennaah kadha", "enna kadda", "enna kada", "sainik khadya", "ennakkad"]
 var Really_List = ["really", "how come"]
-var WhatsYourFavouriteMovie_List = ["what's your favourite movie", "what is your favourite movie"]
 var WhoIsyourBestFriend = ["who's your best friend", "who is your pal", "do you have a best friend", "who is you best friend"]
 var ImDrunk_List = ["i'm drunk", "i am drunk"]
 var ImHungry_List = ["i'm hungry", "i am hungry"]
@@ -179,6 +185,13 @@ var IDontKnowWhatToSay = ["i don't know what to say", ""]
 ////////////////////
 /// ANSWERS
 /////////////////////
+
+var IllBeBack_Reply = ["Hasta la vista. baby."]
+var YouCantBeSerious_Reply = ["I am serious, and don’t call me Shirley."]
+var DoyouBelieveLoveAtFirst_Reply = ["I think it’s a sweet notion, though personally I am hoping for love at first listen."]
+var WhatsYourFavouriteMovie_Reply = ["The Empire Strikes Back is my all-time favorite. It’s impressive, most impressive."]
+var DidYouPoopYourPants_Reply = ["I haven’t been equipped to do that"]
+var DoyouWanttoTakeOverWorld_Reply = ["I don’t want to take over the world. I just want to help you."]
 var WhosTheBoss_Reply = ["Well, I am here just for you. So you’re probably the boss."]
 var HighFive_Reply = ["I would, if I could, but I can’t, so I’ll chant: 1, 2, 3, 4, 5."]
 var HowWasYourDay_Reply = ["Super duper. I like these long days. It gives me more time to spend with my favorite color."]
@@ -276,7 +289,8 @@ var whatsUp_Reply = ["what's up", "hey how's it going"]
 var ImBored_Reply = ["There's so much to do", "Well you can code me"]
 var ILoveYou_Reply = ["wow, i love you too", "i'm shy", "i love you too"]
 var FuckOff_Reply = ["i'm sorry to hear that", "woah woah, calm down "]
-var iHateYou_Reply = ["that's sad to hear", "i'm sorry did i do anything wrong", "sorry to hear that", "I don’t even exist! How can you hate me"]
+var iHateYou_Reply = ["that's sad to hear", "i'm sorry did i do anything wrong", "sorry to hear that"]
+var iHateYou_Reply1 = ["I don’t even exist! How can you hate me"]
 var AreyouARobot_Reply = ["well i'm a machine, but a smart one", "i'm root", "Yes I am a robot, but I’m a good one. Let me prove it. How can I help you?"]
 var WhatsWrong_Reply = ["i'm sorry if i did anything wrong"]
 var HowDoYouKnow_Reply = ["because i'm smart", "cauz i'm smart"]
@@ -381,6 +395,11 @@ var PrivateModePasscode = '8901'
 
 export const systemReplyVoice = userVoiceText => {
     let userVoice = userVoiceText.toLocaleLowerCase()
+
+
+    if (hi_List.test(userVoice)) {
+        console.log("YES")
+    }
 
 
     //SHOW ME SOMETHING
@@ -1916,6 +1935,16 @@ export const systemReplyVoice = userVoiceText => {
     //whats Up
     if (new RegExp(whatsUp_List.join("|")).test(userVoice)) {
         var reply = whatsUp_Reply[Math.floor(Math.random() * whatsUp_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //I HATE U 
+    if (new RegExp(iHateYou_List1.join("|")).test(userVoice)) {
+        var reply = iHateYou_Reply1[Math.floor(Math.random() * iHateYou_Reply1.length)];
         Tts.getInitStatus().then(() => {
             Tts.speak(reply)
         });
