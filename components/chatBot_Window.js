@@ -282,7 +282,8 @@ class ChatBot extends React.Component {
     Tts.addEventListener('tts-start', event => {
       this.setState({
         system_VoiceAnimation_state: true,
-        micIconState: false
+        micIconState: false,
+        recording_Voice: false
       })
     }
     );
@@ -635,6 +636,9 @@ class ChatBot extends React.Component {
   */
 
   runSystemVoice = () => {
+    //HANDLE ERROR ON SPEECH IF USER IS INACTIVE EMPTY ARRAY
+    var emtpyArr = []
+    ArrayNoReply = emtpyArr
     this.setState({
       micButton: !this.state.micButton,
       recording_Voice: false,

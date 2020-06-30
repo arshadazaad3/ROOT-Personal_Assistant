@@ -3,6 +3,7 @@ import Tts from 'react-native-tts';
 import { Actions } from "react-native-router-flux";
 
 import * as DateAndTime from './dateAndTime'
+import { useReducer } from 'react';
 
 /////////////////////////////
 ///PRIVATE QUES AND ANS
@@ -31,7 +32,7 @@ var CanYouNOTAVAILABLE_List = ["can you open app", "can you play music", "can yo
 var TellMeAStory = ["tell me story", "tell a story", "tell story", "do you know story", "do you know stories", "tell me a story", "do you know any stories"]
 
 var Bye_List = ["good bye", "see you", "goodbye", "bye"]
-var hi_List = ["hey", "hello", "hola"]
+var hi_List = ["hey", "hello", "hola", "hi", "hey you there", "hello are you there", "hi there"]
 var thanks_List = ["thank you", "thanks", "thank"]
 var HowiSlife_List = ["how is life", "how is life going", "how is your life"]
 var howAreYou_List = ["how are", "how you", "how are you doing", "how are you", "how's it going", "how is it going", "how's life"]
@@ -161,14 +162,15 @@ var YourWeight_List = ["how much do you weigh", "what's your weight"]
 var Canyougiveme_List = ["can you give me money", "can you give me some money", "i need some money"]
 var DoYouLikePizza_List = ["do you like pizza", "do you like food", "do you like submarine", "do you like burger", "do you like burgers"]
 var MakeMeASandWich_List = ["make me a sandwich", "make me sandwich"]
-var WhatDoyouThinkOfCortana_List = ["what do you think about Cortana", "do you like cortana"]
+var WhatDoyouThinkOfCortana_List = ["what do you think about Cortana", "do you like cortana", "what do you think of cortana"]
 var WhosTheBoss_list = ["who's the boss", "who is the boss"]
 var DoyouWanttoTakeOverWorld_List = ["do you want to take over the world"]
 var DidYouPoopYourPants_List = ["did you poop your pants"]
 var WhatsYourFavouriteMovie_List = ["what's your favourite movie", "what is your favourite movie"]
 var DoyouBelieveLoveAtFirst_List = ["do you believe in love at first sight", "do you believe in love in first sight"]
 var YouCantBeSerious_List = ["surely you can’t be serious", "are you serious", "you can't be serious"]
-var IllBeBack_List = ["i'll be back", "i am back", "i will be back", "i'm back"]
+var IllBeBack_List = ["I'll be back", "I am back", "I will be back", "I'm back"]
+var Cancer_List = ["cancer"]
 
 var EnnaKadha_List = ["enna kadha", "ena kadha", "enna katha", "enha katha", "ennah kathah", "ennaah kadha", "enna kadda", "enna kada", "sainik khadya", "ennakkad"]
 var Really_List = ["really", "how come"]
@@ -186,6 +188,7 @@ var IDontKnowWhatToSay = ["i don't know what to say", ""]
 /// ANSWERS
 /////////////////////
 
+var Cancer_Reply = ["Cancer refers to any one of a large number of diseases characterized by the development of abnormal cells that divide uncontrollably and have the ability to infiltrate and destroy normal body tissue."]
 var IllBeBack_Reply = ["Hasta la vista. baby."]
 var YouCantBeSerious_Reply = ["I am serious, and don’t call me Shirley."]
 var DoyouBelieveLoveAtFirst_Reply = ["I think it’s a sweet notion, though personally I am hoping for love at first listen."]
@@ -394,18 +397,142 @@ var MyName = ''
 var PrivateModePasscode = '8901'
 
 export const systemReplyVoice = userVoiceText => {
+
+    //Convert to lowercase
     let userVoice = userVoiceText.toLocaleLowerCase()
 
-
-    if (hi_List.test(userVoice)) {
-        console.log("YES")
+    //Respond to hi,Hello
+    for (var i = 0; i < hi_List.length; i++) {
+        if (hi_List[i] == userVoice) {
+            //Hi | Hello
+            var reply = hi_Reply[Math.floor(Math.random() * hi_Reply.length)];
+            Tts.getInitStatus().then(() => {
+                Tts.speak(reply)
+            });
+            prevQues = reply
+            return reply
+        }
     }
 
+    // Respong to OK GOOGLE
+    if (new RegExp(OKGOOGLE_List.join("|")).test(userVoice)) {
+        var reply = OKGOOGLE_Reply[Math.floor(Math.random() * OKGOOGLE_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //HANDLE USER INPUT IF SENTENCE STARTS WITH (HEY,HEY ROOT)
+
+    var arrayUserVoice = userVoiceText.split(" ")
+    if ((arrayUserVoice[0] == "hey" && arrayUserVoice[1] == "root")
+        || arrayUserVoice[0] == "hey" && arrayUserVoice[1] == "dude"
+        || arrayUserVoice[0] == "hey" && arrayUserVoice[1] == "route"
+    ) {
+        for (i = 0; i < 2; i++) {
+            arrayUserVoice.shift()
+        }
+    }
+
+    else if (arrayUserVoice[0] == "hey"
+        || arrayUserVoice[0] == "hi"
+        || arrayUserVoice[0] == "root"
+    ) {
+        arrayUserVoice.shift();
+    }
+
+    userVoice = arrayUserVoice.join(" ")
+    userVoice = userVoice.toLocaleLowerCase();
+
+    ///////////////////
+    /// RESPONSES
 
     //SHOW ME SOMETHING
-    if (new RegExp(ShowMeSomethingFunny_List.join("|")).test(userVoice)) {
+    if (ShowMeSomethingFunny_List.includes(userVoice)) {
         var reply = "Showing Something Funny"
         Voice.cancel()
+        prevQues = reply
+        return reply
+    }
+
+    //I'LL BE BACK
+    if (IllBeBack_List.includes(userVoice)) {
+        var reply = IllBeBack_Reply[Math.floor(Math.random() * IllBeBack_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //WHOS THE BOSS
+    if (WhosTheBoss_list.includes(userVoice)) {
+        var reply = WhosTheBoss_Reply[Math.floor(Math.random() * WhosTheBoss_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //DO YOU WANT TO TAKE OVER THE WORLD
+    if (DoyouWanttoTakeOverWorld_List.includes(userVoice)) {
+        var reply = DoyouWanttoTakeOverWorld_Reply[Math.floor(Math.random() * DoyouWanttoTakeOverWorld_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //DID YOU POOP YOUR PANTS
+    if (DidYouPoopYourPants_List.includes(userVoice)) {
+        var reply = DidYouPoopYourPants_Reply[Math.floor(Math.random() * DidYouPoopYourPants_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //WHAT SUR FAVORITE MOVIE
+    if (WhatsYourFavouriteMovie_List.includes(userVoice)) {
+        var reply = WhatsYourFavouriteMovie_Reply[Math.floor(Math.random() * WhatsYourFavouriteMovie_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //DO U BELEIVE LOVE AT FIRST SIGHT
+    if (DoyouBelieveLoveAtFirst_List.includes(userVoice)) {
+        var reply = DoyouBelieveLoveAtFirst_Reply[Math.floor(Math.random() * DoyouBelieveLoveAtFirst_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //U CANT BE SERIOUS
+    if (YouCantBeSerious_List.includes(userVoice)) {
+        var reply = YouCantBeSerious_Reply[Math.floor(Math.random() * YouCantBeSerious_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
+        prevQues = reply
+        return reply
+    }
+
+    //CANCER
+    if (Cancer_List.includes(userVoice)) {
+        var reply = Cancer_Reply[Math.floor(Math.random() * Cancer_Reply.length)];
+        Tts.getInitStatus().then(() => {
+            Tts.speak(reply)
+        });
         prevQues = reply
         return reply
     }
@@ -421,7 +548,7 @@ export const systemReplyVoice = userVoiceText => {
     }
 
     //SHIT
-    if (userVoice.includes("s***")) {
+    if (userVoice.includes("s***") || userVoice.includes("shit")) {
         var reply = ExplicitTerms_Reply[Math.floor(Math.random() * ExplicitTerms_Reply.length)];
         Tts.getInitStatus().then(() => {
             Tts.speak(reply)
@@ -651,7 +778,7 @@ export const systemReplyVoice = userVoiceText => {
     }
 
     //WHAT DO YOU THINK OF CORTANA
-    if (new RegExp(WhatDoyouThinkOfCortana_List.join("|")).test(userVoice)) {
+    if (WhatDoyouThinkOfCortana_List.includes(userVoice)) {
         var reply = WhatDoyouThinkOfCortana_Reply[Math.floor(Math.random() * WhatDoyouThinkOfCortana_Reply.length)];
         Tts.getInitStatus().then(() => {
             Tts.speak(reply)
@@ -735,7 +862,7 @@ export const systemReplyVoice = userVoiceText => {
     }
 
     //CAN U THINK
-    if (new RegExp(CanYouThinkForYourself_List.join("|")).test(userVoice)) {
+    if (CanYouThinkForYourself_List.includes(userVoice)) {
         var reply = CanYouThinkForYourself_Reply[Math.floor(Math.random() * CanYouThinkForYourself_Reply.length)];
         Tts.getInitStatus().then(() => {
             Tts.speak(reply)
@@ -1007,15 +1134,7 @@ export const systemReplyVoice = userVoiceText => {
         return reply
     }
 
-    //OK GOOGLE
-    if (new RegExp(OKGOOGLE_List.join("|")).test(userVoice)) {
-        var reply = OKGOOGLE_Reply[Math.floor(Math.random() * OKGOOGLE_Reply.length)];
-        Tts.getInitStatus().then(() => {
-            Tts.speak(reply)
-        });
-        prevQues = reply
-        return reply
-    }
+
 
     //CAN I CHANGE UR NAME
     if (new RegExp(CanIchangeYourName_List.join("|")).test(userVoice)) {
@@ -1180,24 +1299,6 @@ export const systemReplyVoice = userVoiceText => {
         return reply
     }
 
-    //Hi | Hello
-    if (new RegExp(hi_List.join("|")).test(userVoice)) {
-        var reply = hi_Reply[Math.floor(Math.random() * hi_Reply.length)];
-        Tts.getInitStatus().then(() => {
-            Tts.speak(reply)
-        });
-        prevQues = reply
-        return reply
-    }
-
-    if (userVoice == "hi") {
-        var reply = hi_Reply[Math.floor(Math.random() * hi_Reply.length)];
-        Tts.getInitStatus().then(() => {
-            Tts.speak(reply)
-        });
-        prevQues = reply
-        return reply
-    }
 
     //WHAT LANGUAGE U SPEAK 
     if (new RegExp(whatLanguageCanYouSpeak_List.join("|")).test(userVoice)) {
@@ -1965,19 +2066,16 @@ export const systemReplyVoice = userVoiceText => {
     //Bye 
     if (new RegExp(Bye_List.join("|")).test(userVoice)) {
         Voice.cancel()
-        console.log("Chat End")
         return false
     }
     //Bye 2
     if (userVoice == "bye") {
         Voice.cancel()
-        console.log("Chat End")
         return false
     }
     //ShutUp
     if (new RegExp(ShutUp_List.join("|")).test(userVoice)) {
         Voice.cancel()
-        console.log("Chat End")
         return false
     }
 
@@ -2109,7 +2207,6 @@ export const systemReplyVoice = userVoiceText => {
 
     else if (userVoice.split(" ").length < 3 && userVoice.includes("cancel")) {
         Voice.cancel()
-        console.log("Chat End")
         return false;
     }
 
@@ -2192,7 +2289,6 @@ export const systemReplyVoice = userVoiceText => {
         Tts.getInitStatus().then(() => {
             Tts.speak(reply)
         });
-        console.log(reply)
         prevQues = reply
         return reply
     }
@@ -2291,4 +2387,18 @@ export const PrivateModeHandler = () => {
     if (prevUserQues == 'privateMode')
         Actions.PrivateMode_Window()
     prevUserQues = ""
+}
+
+const Response = (usertext, question_list, reply_list, AddprevUserQues) => {
+    for (i = 0; i < question_list.length; i++) {
+        if (question_list[i] == usertext) {
+            var reply = reply_list[Math.floor(Math.random() * reply_list.length)];
+            Tts.getInitStatus().then(() => {
+                Tts.speak(reply)
+            });
+            prevQues = reply
+            prevUserQues = AddprevUserQues
+            return reply
+        }
+    }
 }

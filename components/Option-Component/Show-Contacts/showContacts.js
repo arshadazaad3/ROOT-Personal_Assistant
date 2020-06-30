@@ -8,10 +8,16 @@ import {
   SafeAreaView,
   StyleSheet,
   Text,
+  BackHandler,
+  TouchableOpacity,
   View,
   FlatList,
   TextInput
 } from "react-native";
+import { Actions } from 'react-native-router-flux';
+
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 
 import Contacts from "react-native-contacts";
 import ListItem from "../../Contacts/ListItem";
@@ -19,7 +25,11 @@ import ListItem from "../../Contacts/ListItem";
 const App = () => {
   let [contacts, setContacts] = useState([]);
 
+
+
   useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', () => Actions.VoiceAssistant_Window());
+
     if (Platform.OS === "android") {
       PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_CONTACTS, {
         title: "Contacts",
@@ -29,6 +39,10 @@ const App = () => {
       });
     } else {
       loadContacts();
+    }
+
+    return () => {
+      BackHandler.removeEventListener('hardwareBackPress', () => Actions.VoiceAssistant_Window());
     }
   }, []);
 
@@ -66,12 +80,18 @@ const App = () => {
     Contacts.openExistingContact(contact, () => { })
   };
 
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
-        <Text style={styles.header}>
-          Contacts List
+        <View style={{ height: 51 }}>
+          <Text style={styles.header}>
+            Contacts List
         </Text>
+          <TouchableOpacity style={styles.CloseBoxContainer} onPress={() => Actions.VoiceAssistant_Window()} >
+            <Icon name="close" size={30} color={'black'} />
+          </TouchableOpacity>
+        </View>
         <TextInput
           onChangeText={search}
           placeholder='Search'
@@ -95,13 +115,24 @@ const App = () => {
 export default App;
 
 const styles = StyleSheet.create({
+
+  CloseBoxContainer: {
+    // display: 'flex',
+    // position: "relative",
+    bottom: 47,
+    right: 3,
+    // right: 12,
+    alignSelf: 'flex-end',
+
+  },
   container: {
     flex: 1,
-    marginTop: 10
+    marginTop: 10,
   },
   header: {
     backgroundColor: '#4591ed',
     color: 'white',
+    // alignSelf: 'flex-start',
     paddingHorizontal: 15,
     paddingVertical: 15,
     fontSize: 20
