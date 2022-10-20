@@ -28,7 +28,7 @@
     "react-native-keep-awake": "^4.0.0",
     "react-native-material-ui": "^1.30.1",
     "react-native-permissions": "^2.1.5",
-    "react-native-reanimated": "^1.9.0",
+    "react-native-reanimated": "^2.10.0",
     "react-native-router-flux": "^4.2.0",
     "react-native-safe-area-context": "^3.0.4",
     "react-native-screens": "^2.8.0",
